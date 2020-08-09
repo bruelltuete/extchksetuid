@@ -37,6 +37,7 @@
 #
 # Add to periodic.conf:
 #   security_status_extchksetuid_enable="YES"
+#   security_status_extchksetuid_period="daily"
 #   security_status_chksetuid_enable="NO"
 #
 

@@ -81,7 +81,7 @@ then
 	/usr/bin/find -sx $MP /dev/null \( ! -fstype local \) -prune -o -type f \
 	    \( -perm -u+x -or -perm -g+x -or -perm -o+x \) \
 	    \( -perm -u+s -or -perm -g+s \) \
-	    -exec /usr/bin/env TZ=UTC LANG=C LS_COLWIDTHS=0:0:1:8:8:5:8 /bin/sh -c "/bin/ls -lod -D\ %Y/%m/%d\ %T {} | /usr/bin/tr '\n' ' ' && /usr/bin/openssl dgst -sha256 -binary {} | /usr/bin/uuencode -r -m - | /usr/bin/tr -d '='" \; |
+	    -exec /usr/bin/env TZ=UTC LANG=C LS_COLWIDTHS=0:0:1:8:8:5:8 /bin/sh -c "/bin/ls -lod -D\ %Y/%m/%d\ %T '{}' | /usr/bin/tr '\n' ' ' && /usr/bin/openssl dgst -sha256 -binary '{}' | /usr/bin/uuencode -r -m - | /usr/bin/tr -d '='" \; |
 	check_diff setuid - "${host} setuid diffs:"
 	rc=$?
 fi
